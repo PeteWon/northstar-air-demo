@@ -130,12 +130,20 @@ def record_location():
             "error": "Longitude out of range"
         }), 400
 
-    write_event(
-        "location_shared",
-        latitude=round(latitude, 2),
-        longitude=round(longitude, 2),
-        device_label=device_label.strip(),
-    )
+def write_event(event_name, **fields):
+    event = {
+        "event": event_name,
+        "anonymous_token": secrets.token_urlsafe(16),
+        "timestamp_utc": utc_now(),
+        **fields,
+    }
+
+    # Show event in Render logs
+    print(json.dumps(event, indent=2), flush=True)
+
+    # Also save locally
+    with EVENT_LOG.open("a", encoding="utf-8") as log:
+        log.write(json.dumps(event) + "\n")
 
     return jsonify({"ok": True})
 
