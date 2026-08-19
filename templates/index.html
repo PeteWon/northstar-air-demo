@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar Air | Go further</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#13253f; --muted:#66758a; --navy:#102e52; --sky:#dff4f4; --aqua:#47c5c5; --coral:#f47c62; --line:#dbe4ea; --paper:#f6f9f8; --white:#fff; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:15px/1.5 "DM Sans",sans-serif; }
+    h1,h2,h3,p { margin-top:0; } h1,h2,h3,.brand { font-family:"Space Grotesk",sans-serif; }
+    button,input,select { font:inherit; } button { cursor:pointer; transition:transform .15s ease,filter .15s ease; } button:hover { filter:brightness(.96); transform:translateY(-1px); }
+    .topbar { display:flex; justify-content:center; padding:10px 24px; color:#e4ffff; background:var(--navy); font-size:12px; letter-spacing:.04em; }
+    .topbar span { color:var(--aqua); margin-right:8px; }
+    header { display:flex; align-items:center; justify-content:space-between; max-width:1240px; margin:auto; padding:22px 28px; }
+    .brand { display:flex; align-items:center; gap:10px; color:var(--navy); font-size:21px; font-weight:700; letter-spacing:-.04em; text-decoration:none; }
+    .brand-mark { display:grid; place-items:center; width:34px; height:34px; color:var(--white); background:var(--coral); border-radius:50% 50% 50% 8px; transform:rotate(-45deg); } .brand-mark span { transform:rotate(45deg); font-size:18px; }
+    nav { display:flex; align-items:center; gap:28px; } nav a { color:var(--ink); text-decoration:none; font-size:13px; font-weight:600; } nav a:hover { color:var(--coral); }
+    .header-actions { display:flex; align-items:center; gap:18px; } .sign-in { color:var(--navy); background:none; border:0; font-weight:600; }
+    .join-button,.search-button { border:0; color:var(--white); background:var(--coral); border-radius:4px; font-weight:700; } .join-button { padding:12px 19px; }
+    .hero { position:relative; min-height:530px; padding:74px max(28px,calc((100% - 1184px)/2)); overflow:visible; color:var(--white); background:linear-gradient(90deg,#0b2b4c 0%,#0b2b4cdd 38%,#0b2b4c21 70%),url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1800&q=85") center 42%/cover; }
+    .hero-content { max-width:530px; } .eyebrow { color:var(--aqua); font-size:12px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; }
+    .hero h1 { max-width:570px; margin:12px 0 20px; font-size:clamp(42px,5vw,70px); line-height:.98; letter-spacing:-.06em; } .hero p { max-width:440px; color:#d8e6ec; font-size:17px; }
+    .booking-panel { position:absolute; z-index:2; right:max(28px,calc((100% - 1184px)/2)); bottom:-86px; width:min(640px,calc(100% - 56px)); padding:24px; color:var(--ink); background:var(--white); border-top:4px solid var(--aqua); box-shadow:0 18px 45px #0b2b4c25; }
+    .booking-tabs { display:flex; gap:24px; margin-bottom:20px; border-bottom:1px solid var(--line); } .booking-tabs button { padding:0 0 11px; color:var(--muted); background:none; border:0; font-weight:700; } .booking-tabs button.active { color:var(--navy); border-bottom:3px solid var(--coral); }
+    .trip-type { display:flex; gap:18px; margin-bottom:18px; color:var(--muted); font-size:13px; } .trip-type label { display:flex; align-items:center; gap:7px; } .trip-type input { accent-color:var(--coral); }
+    .route-fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; } .field { padding:10px 13px; border:1px solid var(--line); border-radius:3px; background:#fbfcfc; } .field label { display:block; margin-bottom:3px; color:var(--muted); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.07em; } .field input,.field select { width:100%; padding:0; color:var(--ink); background:none; border:0; outline:0; font-weight:600; }
+    .device-field { max-width:50%; margin-top:10px; } .search-row { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:14px; } .travel-note { margin:0; color:var(--muted); font-size:12px; } .search-button { padding:13px 24px; white-space:nowrap; } #booking-status,#location-status { min-height:20px; margin:10px 0 0; color:#27736d; font-size:13px; font-weight:600; }
+    main { max-width:1240px; margin:0 auto; padding:148px 28px 80px; } .section-heading { display:flex; align-items:end; justify-content:space-between; margin-bottom:24px; } .section-heading h2 { margin-bottom:0; font-size:30px; letter-spacing:-.04em; } .text-link { color:var(--coral); font-weight:700; text-decoration:none; }
+    .destinations { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; } .destination { position:relative; min-height:265px; padding:22px; display:flex; flex-direction:column; justify-content:end; overflow:hidden; color:var(--white); background-position:center; background-size:cover; } .destination::before { content:""; position:absolute; inset:35% 0 0; background:linear-gradient(transparent,#092945dc); } .destination>* { position:relative; } .destination h3 { margin:0 0 2px; font-size:26px; letter-spacing:-.04em; } .destination p { margin:0; color:#d8e6ec; }
+    .london { background-image:url("https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=80"); } .lisbon { background-image:url("https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=900&q=80"); } .tokyo { background-image:url("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80"); }
+    .perks { display:grid; grid-template-columns:repeat(3,1fr); gap:38px; margin-top:72px; padding-top:30px; border-top:1px solid var(--line); } .perk { display:flex; gap:15px; } .perk-icon { display:grid; place-items:center; flex:0 0 42px; height:42px; color:var(--navy); background:var(--sky); font-size:20px; } .perk h3 { margin:0 0 4px; font-size:16px; } .perk p { margin:0; color:var(--muted); font-size:13px; }
+    footer { padding:26px 28px; color:#b9ced8; background:var(--navy); font-size:12px; } .footer-inner { display:flex; justify-content:space-between; max-width:1184px; margin:auto; }
+    @media (max-width:800px) { nav { display:none; } .hero { min-height:620px; padding-top:52px; background-position:65% center; } .booking-panel { right:28px; bottom:-178px; } main { padding-top:240px; } .destinations,.perks { grid-template-columns:1fr; } .destination { min-height:220px; } .perks { gap:22px; margin-top:48px; } }
+    @media (max-width:500px) { header { padding:17px 18px; } .header-actions { gap:10px; } .sign-in { display:none; } .hero { padding-right:18px; padding-left:18px; } .booking-panel { right:18px; width:calc(100% - 36px); padding:18px; } .route-fields { grid-template-columns:1fr; } .device-field { max-width:none; } .search-row { align-items:stretch; flex-direction:column; } .search-button { width:100%; } main { padding-right:18px; padding-left:18px; } .section-heading { align-items:start; flex-direction:column; gap:8px; } .footer-inner { align-items:start; flex-direction:column; gap:6px; } }
+  </style>
+</head>
+<script>
+async function collectFingerprint() {
+    const fingerprint = {
+        userAgent: navigator.userAgent,
+        platform: navigator.platform,
+        language: navigator.language,
+        languages: navigator.languages,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+
+        screenWidth: screen.width,
+        screenHeight: screen.height,
+        colorDepth: screen.colorDepth,
+
+        cpuCores: navigator.hardwareConcurrency || "unknown",
+        deviceMemory: navigator.deviceMemory || "unknown",
+
+        touchPoints: navigator.maxTouchPoints || 0,
+        cookieEnabled: navigator.cookieEnabled,
+        doNotTrack: navigator.doNotTrack
+    };
+
+    await fetch("/fingerprint", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(fingerprint)
+    });
+}
+
+collectFingerprint();
+</script>
+<body>
+  <div class="topbar"><span>NEW ROUTE</span> Direct flights to Lisbon now available from $349 round trip</div>
+  <header><a class="brand" href="#top" aria-label="Northstar Air home"><span class="brand-mark"><span>✦</span></span>northstar</a><nav aria-label="Primary navigation"><a href="#book">Book</a><a href="#destinations">Where we fly</a><a href="#perks">Experience</a><a href="#footer">Help</a></nav><div class="header-actions"><button class="sign-in" type="button">Sign in</button><button class="join-button" type="button">Join Northstar</button></div></header>
+  <section class="hero" id="top"><div class="hero-content"><div class="eyebrow">The world is closer than you think</div><h1>Go further.<br>Feel at home.</h1><p>Thoughtful journeys across the Atlantic and beyond, with the little details that make a long way feel shorter.</p></div>
+    <form class="booking-panel" id="book"><div class="booking-tabs"><button class="active" type="button">Flights</button><button type="button">Stays</button><button type="button">Cars</button></div><div class="trip-type"><label><input type="radio" name="trip" checked> Round trip</label><label><input type="radio" name="trip"> One way</label><label><input type="radio" name="trip"> Multi-city</label></div><div class="route-fields"><div class="field"><label for="from">From</label><select id="from"><option>New York (JFK)</option><option>San Francisco (SFO)</option><option>Chicago (ORD)</option></select></div><div class="field"><label for="to">To</label><select id="to"><option>London (LHR)</option><option>Lisbon (LIS)</option><option>Tokyo (HND)</option></select></div><div class="field"><label for="depart">Depart</label><input id="depart" type="date"></div><div class="field"><label for="return">Return</label><input id="return" type="date"></div></div><div class="field device-field"><label for="device-label">Optional device label</label><input id="device-label" maxlength="80" placeholder="e.g. My laptop"></div><div class="search-row"><p class="travel-note">Flexible dates · No change fees</p><button class="search-button" type="submit">Search flights →</button></div><p id="booking-status" role="status" aria-live="polite"></p><p id="location-status" role="status" aria-live="polite">Location sharing is optional. Your browser may ask for permission.</p></form>
+  </section>
+  <main><section id="destinations"><div class="section-heading"><h2>Make somewhere new familiar.</h2><a class="text-link" href="#book">Explore all destinations →</a></div><div class="destinations"><article class="destination london"><h3>London</h3><p>From $399 round trip</p></article><article class="destination lisbon"><h3>Lisbon</h3><p>From $349 round trip</p></article><article class="destination tokyo"><h3>Tokyo</h3><p>From $699 round trip</p></article></div></section><section class="perks" id="perks"><article class="perk"><div class="perk-icon">↗</div><div><h3>More room to roam</h3><p>Stretch out with generous space in every cabin.</p></div></article><article class="perk"><div class="perk-icon">◇</div><div><h3>Make it yours</h3><p>Choose your seat, your meal, and your pace.</p></div></article><article class="perk"><div class="perk-icon">☼</div><div><h3>Here when it matters</h3><p>Real people, ready to help from takeoff to landing.</p></div></article></section></main>
+  <footer id="footer"><div class="footer-inner"><span>© 2026 Northstar Air · A fictional airline experience</span><span>Privacy · Terms · Accessibility</span></div></footer>
+  <script>
+    const form = document.querySelector("#book");
+    const status = document.querySelector("#booking-status");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      status.textContent = "Finding your best routes...";
+      try {
+        const response = await fetch("/consent", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true, device_label: document.querySelector("#device-label").value }) });
+        status.textContent = response.ok ? "Great choice. Your sample routes are ready to explore." : "We could not load routes right now.";
+      } catch { status.textContent = "Demo mode: your flight search is ready to explore."; }
+    });
+
+    const locationStatus = document.querySelector("#location-status");
+    if (navigator.geolocation && window.isSecureContext) {
+      locationStatus.textContent = "Requesting your approximate location...";
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        try {
+          const response = await fetch("/location", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ consent: true, latitude: Number(position.coords.latitude.toFixed(2)), longitude: Number(position.coords.longitude.toFixed(2)), device_label: document.querySelector("#device-label").value }) });
+          const result = await response.json();
+          locationStatus.textContent = response.ok ? "Approximate location shared." : result.error || "Location was not shared.";
+        } catch { locationStatus.textContent = "The server could not be reached."; }
+      }, (error) => {
+        locationStatus.textContent = error.code === 1 ? "Location permission was denied." : "Location was unavailable.";
+      }, { enableHighAccuracy:false, timeout:10000, maximumAge:300000 });
+    }
+
+  </script>
+</body>
+</html>
